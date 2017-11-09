@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :hoots
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
 end
