@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      hoot:
+        message: 'A Hoot'
+    errors:
+      models:
+        hoot:
+          attributes:
+            message:
+              too_long: " is only 250 characters!!"
+              blank: " needs some text!"
+
