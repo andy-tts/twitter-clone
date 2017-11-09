@@ -3,7 +3,6 @@ class Hoot < ApplicationRecord
 
 	validates :message, presence: true, 
 		length: { 
-			maximum: 250, 
-			too_long: 'Hoots must be less than 250 characters!' 
+			maximum: 250
 		}
 end
