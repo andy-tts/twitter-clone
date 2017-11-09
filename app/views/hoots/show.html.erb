@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @hoot.message %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @hoot.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_hoot_path(@hoot) %> |
+<%= link_to 'Back', hoots_path %>

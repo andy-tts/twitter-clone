@@ -1,0 +1,2 @@
+class Hoot < ApplicationRecord
+end

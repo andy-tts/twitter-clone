@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hoots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hoots.each do |hoot| %>
+      <tr>
+        <td><%= hoot.message %></td>
+        <td><%= hoot.user_id %></td>
+        <td><%= link_to 'Show', hoot %></td>
+        <td><%= link_to 'Edit', edit_hoot_path(hoot) %></td>
+        <td><%= link_to 'Destroy', hoot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hoot', new_hoot_path %>
