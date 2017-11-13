@@ -1,6 +1,5 @@
 class HootsController < ApplicationController
   before_action :set_hoot, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   # GET /hoots
   # GET /hoots.json
