@@ -1,2 +1,10 @@
-<h1>Epicenter#show_user</h1>
-<p>Find me in app/views/epicenter/show_user.html.erb</p>
+<h1><%= @display_user.username %></h1>
+
+<%= link_to "Follow", now_following_path(follow_user_id: @display_user.id) %>
+
+
+<ul>
+<% @display_user.hoots.each do |hoot| %>
+  <li><%= hoot.message %></li>
+<% end %>
+<ul> 

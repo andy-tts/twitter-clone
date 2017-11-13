@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'epicenter/now_following'
 
+  get 'now_following' => 'epicenter#now_following'
+
   get 'epicenter/unfollow'
 
   resources :hoots
