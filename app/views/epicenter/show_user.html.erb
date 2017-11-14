@@ -1,7 +1,10 @@
 <h1><%= @display_user.username %></h1>
 
-<%= link_to "Follow", now_following_path(follow_user_id: @display_user.id) %>
-
+<% if !current_user.following.include?(@display_user.id.to_s) %>
+	<%= link_to "Follow", now_following_path(follow_user_id: @display_user.id) %>
+<% else %>
+	<%= link_to	"Unfollow", unfollow_path(unfollow_user_id: @display_user.id) %>
+<% end %>
 
 <ul>
 <% @display_user.hoots.each do |hoot| %>
