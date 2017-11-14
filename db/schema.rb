@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113143319) do
+ActiveRecord::Schema.define(version: 20171114141005) do
+
+  create_table "hoot_tags", force: :cascade do |t|
+    t.integer "hoot_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hoots", force: :cascade do |t|
     t.string "message"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "phrase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
