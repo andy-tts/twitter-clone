@@ -4,6 +4,6 @@
 <p> Here are the latest hoots </p>
 <ul>
 <% @following_hoots.each do |hoot| %>
-  <li><span> <%=hoot.user.username %></span> <span><%= hoot.message %></span></li>
+  <li><span> <%=hoot.user.username %></span> <span><%= hoot.message.html_safe %></span></li>
 <% end %>
 </ul>

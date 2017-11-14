@@ -26,4 +26,10 @@ class EpicenterController < ApplicationController
   	current_user.save!
   	redirect_to show_user_path(user_id: unfollow_user_id)
   end
+
+  def tag_hoots
+    puts params
+    @tag = Tag.find(params[:id])
+    @tagged_hoots = @tag.hoots
+  end
 end

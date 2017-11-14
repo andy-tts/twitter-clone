@@ -1,0 +1,9 @@
+<h1><%= @tag.phrase %></h1>
+
+<div class="row">
+	<ul>
+		<% @tagged_hoots.each do |hoot| %>
+			<li><%= hoot.message.html_safe %></li>
+		<% end %>
+	</ul>
+</div>
