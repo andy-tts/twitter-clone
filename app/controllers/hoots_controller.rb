@@ -1,5 +1,6 @@
 class HootsController < ApplicationController
   before_action :set_hoot, only: [:show, :edit, :update, :destroy]
+  include HootsHelper
 
   # GET /hoots
   # GET /hoots.json
@@ -25,28 +26,8 @@ class HootsController < ApplicationController
   # POST /hoots.json
   def create
     @hoot = Hoot.new(hoot_params)
-    # the quick brown #typing #skills
-    message_array = @hoot.message.split(' ')
-    # ['the', 'quick', 'brown', '#typing', '#skills']
-
-    message_array.each_with_index do |word, index|
-      if word[0] == "#"
-        existing_tags = Tag.pluck(:phrase)
-        if existing_tags.include?(word)
-          tag = Tag.find_by(phrase: word)
-        else
-          tag = Tag.create(phrase: word)
-        end
-
-        hoot_tag = HootTag.create(tag: tag, hoot: @hoot)
-
-        message_array[index] = "<a href='/tag_hoots?id=#{tag.id}'>#{word}</a>"
-      end
-    end
-    # ['the', 'quick', 'brown', '<a href="/">#typing</a>', '<a href="/">#skills</a>']
-    updated_message = message_array.join(' ')
-    # the quick brown <a href="/">#typing</a> <a href="/"> #skills</a>
-    @hoot.update(message: updated_message)
+    
+    @hoot = build_tags(@hoot)
 
     respond_to do |format|
       if @hoot.save
@@ -62,6 +43,7 @@ class HootsController < ApplicationController
   # PATCH/PUT /hoots/1
   # PATCH/PUT /hoots/1.json
   def update
+    @hoot = build_tags(@hoot)
     respond_to do |format|
       if @hoot.update(hoot_params)
         format.html { redirect_to @hoot, notice: 'Hoot was successfully updated.' }
