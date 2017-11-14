@@ -14,7 +14,7 @@
   <tbody>
     <% @hoots.each do |hoot| %>
       <tr>
-        <td><%= hoot.message %></td>
+        <td><%= hoot.message.html_safe %></td>
         <td><%= link_to hoot.user.username, "/epicenter/show_user?user_id=#{hoot.user.id}" %></td>
         <td><%= link_to 'Show', hoot %></td>
         <td><%= link_to 'Edit', edit_hoot_path(hoot) %></td>
