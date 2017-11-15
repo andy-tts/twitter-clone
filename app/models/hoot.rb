@@ -23,7 +23,7 @@ class Hoot < ApplicationRecord
 				# http://google.com, 4
 				if word.include?("http://")
 					self.link = word
-
+					
 					if word.length > 23
 						shortened_link = word[0..19]
 						html_link = "<a href='#{self.link}'>#{shortened_link}...</a>"
