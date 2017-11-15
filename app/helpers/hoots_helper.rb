@@ -21,7 +21,7 @@ module HootsHelper
     # ['the', 'quick', 'brown', '<a href="/">#typing</a>', '<a href="/">#skills</a>']
     updated_message = message_array.join(' ')
     # the quick brown <a href="/">#typing</a> <a href="/"> #skills</a>
-    hoot.update(message: updated_message)
+    hoot.message = updated_message
     return hoot
 	end
 end
