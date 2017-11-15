@@ -13,6 +13,10 @@ class EpicenterController < ApplicationController
   	@display_user = User.find(params[:user_id])
   end
 
+  def all_users
+    @users = User.all
+  end
+
   def now_following
   	follow_user_id = params[:follow_user_id]
   	current_user.following.push(follow_user_id)

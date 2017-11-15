@@ -3,7 +3,7 @@
 
 $(document).ready(function() {
 	console.log("Code is ready to run!");
-	$("#unfollow-btn").hover(function() {
+	$(".unfollow-btn").hover(function() {
 		$(this).removeClass("btn-primary")
 		$(this).addClass("btn-danger");
 		$(this).html("Unfollow");
@@ -12,5 +12,4 @@ $(document).ready(function() {
 		$(this).removeClass("btn-danger");
 		$(this).html("Following");
 	});
-
 });

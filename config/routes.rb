@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'show_user' => 'epicenter#show_user'
 
+  get 'all_users' => 'epicenter#all_users'
+
   get 'epicenter/now_following'
 
   get 'now_following' => 'epicenter#now_following'
