@@ -9,6 +9,8 @@ class Hoot < ApplicationRecord
 			maximum: 250
 		}
 
+	before_validation :link_check
+
 	def link_check
 		if message.include?("http://")
 			# includes a link
@@ -24,7 +26,8 @@ class Hoot < ApplicationRecord
 
 					if word.length > 23
 						shortened_link = word[0..19]
-						word_array[index] = shortened_link + '...'
+						html_link = "<a href='#{self.link}'>#{shortened_link}...</a>"
+						word_array[index] = html_link
 					end
 				end
 			end
