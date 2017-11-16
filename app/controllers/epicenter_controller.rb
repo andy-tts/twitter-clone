@@ -36,4 +36,21 @@ class EpicenterController < ApplicationController
     @tag = Tag.find(params[:id])
     @tagged_hoots = @tag.hoots
   end
+
+  def following
+    @following = []
+    current_user.following.each do |user_id|
+      user = User.find(user_id)
+      @following.push(user)
+    end
+  end
+
+  def followers
+    @followers = []
+    User.all.each do |user|
+      if user.following.include?(current_user.id.to_s)
+        @followers.push(user)
+      end
+    end
+  end
 end
